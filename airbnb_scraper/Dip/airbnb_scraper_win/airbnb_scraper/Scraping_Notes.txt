@@ -1,0 +1,171 @@
+####################### Kai Lu - scrapes #########################
+
+https://medium.com/better-programming/a-gentle-introduction-to-using-scrapy-to-crawlairbnb-listings-58c6cf9f9808
+
+Github: https://github.com/kailu3/airbnb-scraper
+
+scrapy crawl airbnb -o seattle.json -a city='seattle' -a price_lb='1' -a price_ub='900'
+
+############### JSON for all the Listings #########################
+
+https://www.airbnb.com/api/v2/explore_tabs?_format=for_explore_search_web&auto_ib=false&client_session_id=a0ebff19-e66e-43a2-92f6-0bdfa2a07a79&current_tab_id=home_tab&experiences_per_grid=20&fetch_filters=true&guidebooks_per_grid=20&has_zero_guest_treatment=true&hide_dates_and_guests_filters=false&is_guided_search=true&is_new_cards_experiment=true&is_standard_search=true&items_per_grid=18&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&locale=en&metadata_only=false&place_id=ChIJW-T2Wt7Gt4kRmKFUAsCO4tY&query=Washington%2C%20DC%2C%20United%20States&query_understanding_enabled=true&refinement_paths%5B%5D=%2Fhomes&satori_version=1.2.6&screen_height=617&screen_size=small&screen_width=721&search_type=section_navigation&selected_tab_id=home_tab&show_groupings=true&source=mc_search_bar&supports_for_you_v3=true&timezone_offset=-300&version=1.7.0
+
+################## 
+^^^^USE FIREFOX for the above^^^^ and follow : https://www.youtube.com/watch?v=M7pGIpitSlM
+
+Sketchy API : https://stevesie.com/apps/airbnb-api
+
+#################
+
+****************************************************************************************
+
+################### Listing details JSON to find reviews and host name #################
+
+https://www.airbnb.com/api/v2/pdp_listing_details/11398085?_format=for_rooms_show&_p3_impression_id=p3_1579795793_XqREBl3FbiNMjzS7&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&
+
+Replace the number after pdp_listing_details/**********? with “id” field from the first json.
+
+################### Calendar JSON #####################
+
+https://www.airbnb.com/api/v2/homes_pdp_availability_calendar?currency=USD&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&locale=en&listing_id=11398085&month=1&year=2020&count=12
+
+################### Listing Booking Details JSON ###############
+
+https://www.airbnb.com/api/v2/pdp_listing_booking_details?_format=for_web_dateless&_intents=p3_book_it&_interaction_type=pageload&_p3_impression_id=p3_1579806985_Cl%2F7kLXZIeV8DuDg&_parent_request_uuid=3c17c254-a0d2-44f9-a6dc-ad9fdae2fa9f&currency=USD&force_boost_unc_priority_message_type=&guests=1&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&listing_id=11398085&locale=en&number_of_adults=1&number_of_children=0&number_of_infants=0&show_smart_promotion=0
+
+################### Review JSON ######################
+
+https://www.airbnb.com/api/v2/homes_pdp_reviews?currency=USD&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&locale=en&listing_id=11398085&_format=for_p3&limit=10000&offset=7&order=language_country
+
+##################### OTHERS RESOURCES  ################################
+
+
+Tom Slee :  https://tomslee.net/airbnb-data-collection-methodology-and-accuracy
+
+Github: https://tomslee.net/airbnb-data-collection-methodology-and-accuracy
+
+Selenium : https://nycdatascience.com/blog/student-works/airbnb-com-vs-hotels-com-a-webscraping-project/
+
+Github : https://github.com/priyasrivast/WebscrapingAirBnbAndHotels
+
+
+############################################# FINAL JSONS ############################################
+
+****************** LISTINGS FROM A CITY *******************
+
+https://www.airbnb.com/api/v2/explore_tabs?_format=for_explore_search_web&currency=USD&items_per_grid=100&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&locale=en&query=Washington%2C%20DC%2C%20United%20States&query_understanding_enabled=true&search_type=section_navigation&selected_tab_id=home_tab&timezone_offset=-300&version=1.7.0&price_min=1&price_max=50
+
+------------------  &neighborhood_ids%5B%5D=1181
+
+******************** HOST INFORMATION & RATINGS ******************
+
+https://www.airbnb.com/api/v2/pdp_listing_details/11398085?_format=for_rooms_show&currency=USD&key=d306zoyjsyarp7ifhu67rjxn52tv0t20
+
+******************** AVAILABILITY CALENDAR *******************
+
+https://www.airbnb.com/api/v2/homes_pdp_availability_calendar?&currency=USD&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&locale=en&listing_id=11398085&month=1&year=2020&count=12
+
+******************** INDIVIDUAL REVIEWS *******************
+
+https://www.airbnb.com/api/v2/homes_pdp_reviews?&currency=USD&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&locale=en&listing_id=11398085&limit=100000&offset=0&order=language_country
+
+
+************ LISTING BOOKING DETAILS (CANCELLATION POLICY) ******************
+
+https://www.airbnb.com/api/v2/pdp_listing_booking_details?_format=for_web_dateless&currency=USD&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&listing_id=11398085
+
+
+https://www.airbnb.com/api/v2/pdp_listing_booking_details?_format=for_web_dateless&_intents=p3_book_it&_interaction_type=pageload&_p3_impression_id=p3_1579806985_Cl%2F7kLXZIeV8DuDg&_parent_request_uuid=3c17c254-a0d2-44f9-a6dc-ad9fdae2fa9f&currency=USD&force_boost_unc_priority_message_type=&guests=1&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&listing_id=11398085&locale=en&number_of_adults=1&number_of_children=0&number_of_infants=0&show_smart_promotion=0
+
+****************************************************************************************
+
+scrapy crawl airbnb -o test.json -a city=Austin%2C%20$TX%2C%20United%20States -a price_lb=2000 -a price_ub=10000
+
+
+
+url = ('https://www.airbnb.com/api/v2/explore_tabs?_format=for_explore_search_web&currency=USD&items_per_grid=100&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&locale=en'
+              '&query={2}'
+              '&query_understanding_enabled=true&search_type=section_navigation&selected_tab_id=home_tab&timezone_offset=-300&version=1.7.0'                  
+              '&price_min={0}&price_max={1}')
+              
+url = ('https://www.airbnb.com/api/v2/explore_tabs?_format=for_explore_search_web&currency=USD&items_per_grid=100&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&locale=en'
+              '&query={1}'
+              '&query_understanding_enabled=true&search_type=section_navigation&selected_tab_id=home_tab&timezone_offset=-300&version=1.7.0' 
+              '&price_min={0}')
+              
+new_url = ('https://www.airbnb.com/api/v2/explore_tabs?_format=for_explore_search_web&currency=USD&items_per_grid=100&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&locale=en'
+                      '&query={4}'
+                      '&query_understanding_enabled=true&search_type=section_navigation&selected_tab_id=home_tab&timezone_offset=-300&version=1.7.0'
+                      '&items_offset={0}&section_offset={1}&price_min={2}&price_max={3}')
+                      
+url = ('https://www.airbnb.com/api/v2/explore_tabs?_format=for_explore_search_web&currency=USD&items_per_grid=100&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&locale=en'
+                      '&query={3}'
+                      '&query_understanding_enabled=true&search_type=section_navigation&selected_tab_id=home_tab&timezone_offset=-300&version=1.7.0'
+                      '&items_offset={0}&section_offset={1}&price_min={2}')
+                      
+
+scrapy crawl airbnb -o chicago.json -a city='chicago' -a price_lb='1' -a price_ub='75'
+
+
+23468602
+
+https://www.airbnb.com/api/v2/pdp_listing_details/23468602?_format=for_rooms_show&currency=USD&key=d306zoyjsyarp7ifhu67rjxn52tv0t20
+              
+
+https://www.airbnb.com/api/v2/explore_tabs?_format=for_explore_search_web&currency=USD&items_per_grid=100&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&locale=en&query=Philadelphia%2C%20PA%2C%20United%20States&query_understanding_enabled=true&search_type=section_navigation&selected_tab_id=home_tab&timezone_offset=-300&version=1.7.0 &price_min=1&price_max=500
+
+
+scrapy crawl airbnb -o test.json -a city=Houston%2C%20$TX%2C%20United%20States -a price_lb=1 -a price_ub=500
+
+https://www.airbnb.com/api/v2/explore_tabs?_format=for_explore_search_web&currency=USD&items_per_grid=100&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&locale=en&query=Savannah%2C%20GA%2C%20United%20States&query_understanding_enabled=true&search_type=section_navigation&selected_tab_id=home_tab&timezone_offset=-240&version=1.7.3
+
+&neighborhood_ids%5B%5D=593
+
+
+https://www.airbnb.com/api/v2/explore_tabs?_format=for_explore_search_web&auto_ib=false&client_session_id=927b0c9f-6f79-4ed1-9d7a-f7f28969e77f&current_tab_id=home_tab&experiences_per_grid=20&fetch_filters=true&guidebooks_per_grid=20&has_zero_guest_treatment=true&hide_dates_and_guests_filters=false&is_guided_search=true&is_new_cards_experiment=true&is_standard_search=true&items_per_grid=20&key=d306zoyjsyarp7ifhu67rjxn52tv0t20&locale=en&metadata_only=false&neighborhood_ids%5B%5D=593&place_id=ChIJOwg_06VPwokRYv534QaPC8g&query=New%20York%2C%20NY&query_understanding_enabled=true&refinement_paths%5B%5D=%2Fhomes&satori_config_token=EhIbAYgac2F0b3JpX2NsaWVudF9sb2dnaW5nX3Rlc3QJdHJlYXRtZW50EgA&satori_version=1.2.3&screen_height=944&screen_size=medium&screen_width=862&search_type=filter_change&selected_tab_id=home_tab&show_groupings=true&supports_for_you_v3=true&timezone_offset=-240&version=1.7.3
+
+
+
+###################Miami Beach FL - 20k
+
+
+3/30
+Sarasota FL - 5k
+San Bernardino - 5k
+
+
+******DONE******
+Tampa FL -10k
+New York - 40k
+LA - 30k
+Orlando - 30k
+Fort Lauderdale - 18k
+San Diego - 14k
+Vegas - 9k
+Austin - 10k
+Nashville - 7k
+Palm Springs CA - 10k
+Jersey City NJ -35k
+Panama City Beach - 7k
+Salt Lake City UT - 7k
+Kissimmee FL - 30k
+Asheville - 5k
+Scottsdale AZ - 12k
+New Orleans - 7k
+San Jose - 9k
+Destin FL - 7k
+Anaheim CA - 12k
+Savannah GA - 6k
+Portland - 6k
+Honolulu HI - 6k
+Charleston SC - 5k
+Myrtle Beach SC - 7k
+Lake Tahoe CA - 5k
+
+
+
+
+host_response	listing_id	review_comments	review_created_at	review_id	review_language	review_rating	reviewee_deleted	reviewee_first_name	reviewee_host_name	reviewee_id	reviewee_is_superhost	reviewer_deleted	reviewer_first_name	reviewer_host_name	reviewer_id	reviewer_is_superhost	reviews_count
+
+
+
